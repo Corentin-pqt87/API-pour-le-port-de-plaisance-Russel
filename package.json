@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "jsdoc": "^4.0.5"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
