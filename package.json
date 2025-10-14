@@ -2,7 +2,7 @@
   "name": "api-pour-le-port-de-plaisance-russel",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "serveur.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +13,7 @@
     "jsdoc": "^4.0.5"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
   }
 }
