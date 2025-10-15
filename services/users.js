@@ -41,4 +41,8 @@ exports.authenticate = async (req , res , next) => {
     } catch (error) {
         return res.status(501).json(error)
     }
-}
+};
+exports.getById = (req, res) => res.status(200).json({msg: 'getById not implemented'});
+exports.add = (req, res) => res.status(200).json({msg: 'add not implemented'});
+exports.update = (req, res) => res.status(200).json({msg: 'update not implemented'});
+exports.delete = (req, res) => res.status(200).json({msg: 'delete not implemented'});
