@@ -43,6 +43,20 @@ exports.authenticate = async (req , res , next) => {
     }
 };
 exports.getById = (req, res) => res.status(200).json({msg: 'getById not implemented'});
-exports.add = (req, res) => res.status(200).json({msg: 'add not implemented'});
+exports.add = async (req, res, next) => {
+    const temp = ({
+        name: req.body.name,
+        firstname: req.body.firstname,
+        email: req.body.email,
+        password:req.body.password
+    });
+
+    try {
+        let user = await User.create(temp);
+        return res.status(201).json(user);
+    } catch (error) {
+        return res.status(501).json(error);
+    }
+};
 exports.update = (req, res) => res.status(200).json({msg: 'update not implemented'});
 exports.delete = (req, res) => res.status(200).json({msg: 'delete not implemented'});
