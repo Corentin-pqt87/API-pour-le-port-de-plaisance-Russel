@@ -2,8 +2,9 @@
   "name": "api-pour-le-port-de-plaisance-russel",
   "version": "1.0.0",
   "description": "",
-  "main": "serveur.js",
   "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
