@@ -2,13 +2,14 @@
   "name": "api-pour-le-port-de-plaisance-russel",
   "version": "1.0.0",
   "description": "",
+  "pricate": true,
   "scripts": {
     "start": "env-cmd -f ./env/.env nodemon ./bin/www",
     "dev": "env-cmd -f ./env/.env.dev nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Corentin",
   "license": "ISC",
   "devDependencies": {
     "jsdoc": "^4.0.5"
@@ -18,6 +19,7 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
+    "env-cmd": "^11.0.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.1",
