@@ -1,6 +1,3 @@
-// importation des fonctions de l'API
-import * as API_ppr from './API_ppr'
-
 // ---serveur web---
 const express = require('express');
 const app = express();
