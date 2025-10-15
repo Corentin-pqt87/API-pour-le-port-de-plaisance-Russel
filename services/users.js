@@ -1,6 +1,8 @@
 const User = require('../models/users');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const SECRET_KEY = process.env.SECRET_KEY;
 
 exports.authenticate = async (req , res , next) => {
     const {email, password} = req.body;
@@ -25,7 +27,7 @@ exports.authenticate = async (req , res , next) => {
                         expiresIn: expireIn
                     });
 
-                    res.header('Authorization', 'Bearer ', + token);
+                    res.header('Authorization', 'Bearer ' + token);
 
                     return res.status(200).json('authenticate_succed');
                 }
