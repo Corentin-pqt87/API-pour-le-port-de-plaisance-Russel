@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const service = require('../services/users');
-router.get('/:id', service.getById);
-router.put('/add', service.add);
-router.patch('/:id',service.update);
-router.delete('/:id', service.delete);
+const userService  = require('../services/users');
+router.get('/:id', userService.getById);
+router.put('/add', userService.add);
+router.patch('/:id',userService.update);
+router.delete('/:id', userService.delete);
 
 // Ajout de la route /authenticate
-router.post('/authenticate', service.authenticate);
+router.post('/authenticate', userService.authenticate);
 
 module.exports = router;
