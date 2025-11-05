@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const private = require('../middleware/private');
+
 const userService  = require('../services/users');
-const { useReducer } = require('react');
+//const { useReducer } = require('react');
 
 // GET /users
 router.get('/', (req, res) => {
@@ -15,10 +17,10 @@ router.get('/:id',private.checkJWT , userService.getById);
 router.put('/add', userService.add);
 
 // PATCH /users/update
-router.patch('/update', private.checkJWTn, userService.update)
+router.patch('/update', private.checkJWT, userService.update)
 
 // DELETE /users/delete
-router.delete('/delete', private.checkJWTn, userService.delete);
+router.delete('/delete', private.checkJWT, userService.delete);
 
 // POST /users/authenticate
 router.post('/authenticate', userService.authenticate);
