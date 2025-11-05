@@ -1,19 +1,21 @@
 require('dotenv').config({ path: './env/.env' });
 
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('cors');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var mongodb = require('./db/mongo');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const mongodb = require('./db/mongo');
 
 mongodb.initClientDbConnection();
 
-var app = express();
+const app = express();
 // Déclaration des middlewares utilisées par l'application
-app.use(cors({ exposedHeaders: ['Authorization'] }));
+app.use(cors({ exposedHeaders: ['Authorization'],
+    origin: '*'
+ }));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
