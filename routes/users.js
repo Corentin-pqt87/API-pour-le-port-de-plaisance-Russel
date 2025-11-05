@@ -22,4 +22,7 @@ router.patch('/:id', userService.update);
 // DELETE /users/:id
 router.delete('/:id', userService.delete);
 
+// route d'authentification
+router.post('/authenticate', userService.authenticate);
+
 module.exports = router;
