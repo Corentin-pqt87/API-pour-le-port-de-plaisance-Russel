@@ -43,6 +43,7 @@ exports.authenticate = async (req , res , next) => {
     }
 };
 exports.getById = (req, res) => res.status(200).json({msg: 'getById not implemented'});
+
 exports.add = async (req, res, next) => {
     const temp = ({
         name: req.body.name,
