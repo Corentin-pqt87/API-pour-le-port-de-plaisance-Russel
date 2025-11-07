@@ -5,43 +5,38 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
-exports.authenticate = async (req , res , next) => {
-    const {email, password} = req.body;
+exports.authenticate = async (req, res, next) => {
+  const { email, password } = req.body;
 
-    try {
-        let user = await User.findOne({email: email}, '-__v -createdAt -updateAt');
+  try {
+    const user = await User.findOne({ email }, '-__v -createdAt -updateAt');
 
-        if (user) {
-            bcrypt.compare(password, user.password, function(err, response) {
-                if (err) {
-                    throw new Error(err);
-                }
-                if (response) {
-                    delete user._doc.password;
-
-                    const expireIn = 24 * 60 * 60;
-                    const token = jwt.sign({
-                        user: user
-                    },
-                    SECRET_KEY,
-                    {
-                        expiresIn: expireIn
-                    });
-
-                    res.header('Authorization', 'Bearer ' + token);
-
-                    return res.status(200).json('authenticate_succed');
-                }
-
-                return res.status(403).json('authenticate_credentials');
-            });
-
-        } else {
-            return res.status(404).json('user_not_found');
-        }
-    } catch (error) {
-        return res.status(501).json(error)
+    if (!user) {
+      return res.status(404).json({ status: "user_not_found" });
     }
+
+    // bcrypt.compare avec await
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) {
+      return res.status(403).json({ status: "authenticate_credentials" });
+    }
+
+    // Supprimer le mot de passe avant de renvoyer l'utilisateur
+    delete user._doc.password;
+
+    // Génération du token JWT
+    const token = jwt.sign({ user }, process.env.SECRET_KEY, {
+      expiresIn: 24 * 60 * 60,
+    });
+
+    // Ajouter le token dans les headers
+    res.header('Authorization', 'Bearer ' + token);
+
+    return res.status(200).json({ status: "authenticate_succed" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json(error.message);
+  }
 };
 exports.getById = async (req, res, next) => {
     const id = req.params.id
@@ -53,7 +48,7 @@ exports.getById = async (req, res, next) => {
             return res.status(200).json(user);
         }
 
-        return res.status(404).json('user_not_found');
+        return res.status(404).json({ status: "user_not_found" });
     }
     catch (error){
         return res.status(501).json(error);

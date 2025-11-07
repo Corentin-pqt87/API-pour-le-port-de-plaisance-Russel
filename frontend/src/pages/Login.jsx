@@ -15,19 +15,22 @@ function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      const text = await res.text();
+      const data = await res.json();
 
-      if (text === "authenticate_succed") {
+      if (data.status === "authenticate_succed") {
         setMessage("Connexion réussie !");
         // Ici tu peux récupérer le token JWT si besoin
         const token = res.headers.get("Authorization");
         localStorage.setItem("token", token);
-      } else if (text === "authenticate_credentials") {
+
+      } else if (data.status === "authenticate_credentials") {
         setMessage("Mot de passe incorrect");
-      } else if (text === "user_not_found") {
+
+      } else if (data.status === "user_not_found") {
         setMessage("Utilisateur non trouvé");
+
       } else {
-        setMessage("Erreur inconnue");
+        setMessage("Erreur inconnue : " + JSON.stringify(data));
       }
     } catch (err) {
       console.error(err);
