@@ -5,6 +5,10 @@ const  clientOptions = {
     dbName : 'API-ppr2'
 };
 
+/**
+ * Permet a l'api de ce connecter a mongodb
+ * @async
+ */
 exports.initClientDbConnection = async () => {
     try {
         await mongoose.connect(process.env.URL_MONGO, clientOptions)

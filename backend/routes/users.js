@@ -7,6 +7,11 @@ const userService  = require('../services/users');
 //const { useReducer } = require('react');
 
 // GET /users
+/**
+ * Entrée de l'api
+ * @param {*} req 
+ * @param {*} res
+ */
 router.get('/', (req, res) => {
   res.json({ message: 'Users API endpoint OK' });
 });

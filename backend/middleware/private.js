@@ -1,6 +1,14 @@
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = process.env.SECRET_KEY;
 
+/**
+ * Vérifie la validité du token
+ * @async
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns 
+ */
 exports.checkJWT = async (req, res, next) => {
     let token = req.headers['x-access-token'] || req.headers['authorization'];
     if (!!token && token.startsWith('Bearer ')) {

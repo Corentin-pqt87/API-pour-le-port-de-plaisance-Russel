@@ -4,6 +4,12 @@ var router = express.Router();
 const userRoute = require('../routes/users');
 const { version } = require('mongoose');
 
+/**
+ * Route de connection a l'api
+ * @async
+ * @param {*} requestAnimationFrame
+ * @param {*} res
+ */
 router.get('/', async (requestAnimationFrame, res) => {
     res.status(200).json({
         nam: process.env.APP_NAME,

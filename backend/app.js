@@ -31,6 +31,11 @@ app.get('/html', (req, res) => {
 });
 
 // gestion des 404
+/**
+ * Lien ver un pages non existante
+ * @param {*} req
+ * @param {*} res
+ */
 app.use((req, res) => {
     res.status(404).json({
         name: 'API',

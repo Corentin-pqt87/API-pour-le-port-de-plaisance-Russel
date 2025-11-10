@@ -5,6 +5,15 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
+
+/**
+ * permet de vérifier si le mot de passe est le mail sont connue dans mongodb et si il sont valide
+ * @async
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns 
+ */
 exports.authenticate = async (req, res, next) => {
   const { email, password } = req.body;
 
