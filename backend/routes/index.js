@@ -4,6 +4,8 @@ var router = express.Router();
 const userRoute = require('../routes/users');
 const { version } = require('mongoose');
 
+const catwayRoute = require('./catways');
+
 /**
  * Route de connection a l'api
  * @async
@@ -20,5 +22,7 @@ router.get('/', async (requestAnimationFrame, res) => {
 });
 
 router.use('/users', userRoute);
+
+router.use('/catways', catwayRoute);
 
 module.exports = router;
