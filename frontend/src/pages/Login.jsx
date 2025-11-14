@@ -25,6 +25,10 @@ function Login() {
 
       
       if (data.status === "authenticate_succed") {
+          if (!data.token) {
+          setMessage("Erreur : token manquant.");
+          return;
+        }
 
         // token dans data.token
         localStorage.setItem("token", data.token);

@@ -13,9 +13,10 @@ mongodb.initClientDbConnection();
 
 const app = express();
 // Déclaration des middlewares utilisées par l'application
-app.use(cors({ exposedHeaders: ['Authorization'],
-    origin: '*'
- }));
+app.use(cors({
+  origin: "http://localhost:3000",          // frontend
+  exposedHeaders: ["Authorization"],       
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
