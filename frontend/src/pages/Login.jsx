@@ -23,18 +23,15 @@ function Login() {
 
       const data = await res.json();
 
+      
       if (data.status === "authenticate_succed") {
 
-        if (!data.token) {
-          setMessage("Erreur : token manquant.");
-          return;
-        }
-
+        // token dans data.token
         localStorage.setItem("token", data.token);
 
         navigate("/dashboard");
-        
-      } else if (data.status === "authenticate_credentials") {
+      }
+      else if (data.status === "authenticate_credentials") {
         setMessage("Mot de passe incorrect");
 
       } else if (data.status === "user_not_found") {
