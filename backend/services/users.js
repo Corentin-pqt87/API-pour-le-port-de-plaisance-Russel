@@ -41,7 +41,10 @@ exports.authenticate = async (req, res, next) => {
     // Ajouter le token dans les headers
     res.header('Authorization', 'Bearer ' + token);
 
-    return res.status(200).json({ status: "authenticate_succed" });
+    return res.status(200).json({
+        status: "authenticate_succed",
+        token: token
+        });
   } catch (error) {
     console.error(error);
     return res.status(500).json(error.message);
