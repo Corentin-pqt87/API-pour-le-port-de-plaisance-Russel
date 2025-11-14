@@ -9,4 +9,10 @@ router.get('/', private.checkJWT, reservationService.getAll);
 // POST /reservation
 router.post('/', private.checkJWT, reservationService.add);
 
+// PATCH /reservation/:id 
+router.patch('/:id', private.checkJWT, reservationService.update);
+
+// DELETE /reservation/:id 
+router.delete('/:id', private.checkJWT, reservationService.delete);
+
 module.exports = router;
