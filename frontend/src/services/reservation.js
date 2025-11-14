@@ -1,8 +1,13 @@
 const API_URL = "http://localhost:5000";
 
 export async function getReservation() {
-  const res = await fetch(`${API_URL}/reservation`);
-  return res.json();
+  const token = localStorage.getItem("token");
+  const res = await fetch(`${API_URL}/reservation`, {
+    headers: { "Authorization": token ? token : "" }
+  });
+  const data = await res.json();
+  
+  return Array.isArray(data) ? data : [];
 }
 
 export async function addReservation(reservation) {
