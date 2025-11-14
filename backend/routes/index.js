@@ -6,6 +6,8 @@ const { version } = require('mongoose');
 
 const catwayRoute = require('./catways');
 
+const reservationRoute = require('./reservation');
+
 /**
  * Route de connection a l'api
  * @async
@@ -24,5 +26,7 @@ router.get('/', async (requestAnimationFrame, res) => {
 router.use('/users', userRoute);
 
 router.use('/catways', catwayRoute);
+
+router.use('/reservation', reservationRoute);
 
 module.exports = router;
