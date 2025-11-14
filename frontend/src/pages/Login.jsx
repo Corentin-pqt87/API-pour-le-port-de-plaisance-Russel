@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 /**
  * formulair d'authentification
@@ -8,9 +9,10 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState(""); // Ajout du state message
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
+    e.preventDefault(); 
 
     try {
       const res = await fetch("http://localhost:5000/users/authenticate", {
@@ -22,11 +24,16 @@ function Login() {
       const data = await res.json();
 
       if (data.status === "authenticate_succed") {
-        setMessage("Connexion réussie !");
-        // Ici tu peux récupérer le token JWT si besoin
-        const token = res.headers.get("Authorization");
-        localStorage.setItem("token", token);
 
+        if (!data.token) {
+          setMessage("Erreur : token manquant.");
+          return;
+        }
+
+        localStorage.setItem("token", data.token);
+
+        navigate("/dashboard");
+        
       } else if (data.status === "authenticate_credentials") {
         setMessage("Mot de passe incorrect");
 

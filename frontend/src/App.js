@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from "react";
 import Login from './pages/Login';
 import Dashboard from './pages/Dashbord';
+import ProtectedRoute from "./ProtectedRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -10,11 +11,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
  * @returns 
  */
 function App() {
-
   return (
-    <div>
-      <Login />;
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
