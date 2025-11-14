@@ -52,27 +52,34 @@ function Login() {
 
   return (
     <div style={{ maxWidth: 400, margin: "100px auto", textAlign: "center" }}>
-      <h2>Connexion</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={{ display: "block", margin: "10px auto", padding: "8px", width: "100%" }}
-        />
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={{ display: "block", margin: "10px auto", padding: "8px", width: "100%" }}
-        />
-        <button type="submit" style={{ padding: "10px 20px" }}>Se connecter</button>
-      </form>
-      <p>{message}</p>
+
+      <h1>Port de Plaisance Russell</h1>
+
+      <p>L'application utilitaire du port de plaisance de Russell permet de pouvoir réserver des passerelle et gérer leur état.</p>
+
+      <div>     
+        <h2>Connexion</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            style={{ display: "block", margin: "10px auto", padding: "8px", width: "100%" }}
+          />
+          <input
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={{ display: "block", margin: "10px auto", padding: "8px", width: "100%" }}
+          />
+          <button type="submit" style={{ padding: "10px 20px" }}>Se connecter</button>
+        </form>
+        <p>{message}</p>
+      </div>
     </div>
   );
 }
