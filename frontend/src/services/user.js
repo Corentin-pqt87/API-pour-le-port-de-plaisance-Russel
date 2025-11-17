@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000";
+const API_URL = "https://api-pour-le-port-de-plaisance-russel.onrender.com";
 
 export async function getUsers() {
   const token = localStorage.getItem("token");

@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault(); 
 
     try {
-      const res = await fetch("http://localhost:5000/users/authenticate", {
+      const res = await fetch("https://api-pour-le-port-de-plaisance-russel.onrender.com/users/authenticate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

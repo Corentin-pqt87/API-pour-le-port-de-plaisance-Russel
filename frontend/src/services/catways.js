@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/catways";
+const API_URL = "https://api-pour-le-port-de-plaisance-russel.onrender.com/catways";
 
 export const getCatways = async () => {
   const token = localStorage.getItem("token");
