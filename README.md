@@ -1,4 +1,6 @@
 Ceci est une api est son interface react pour un la gestion de la location de bateau pour un port (ceci est dans un contexte d'exercice).
+Le lien de l'api héberger est [ici](https://api-pour-le-port-de-plaisance-russel.onrender.com/)
+Le lien du site héberger est [ici](https://site-pour-le-port-de-plaisance-russel.onrender.com/)
 
 ---
 
