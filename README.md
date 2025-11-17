@@ -2,6 +2,12 @@ Ceci est une api est son interface react pour un la gestion de la location de ba
 
 ---
 
+# Installation
+
+Pour installer l'api et son site qui va avec, il faut un dossier avec un espace libre de 370Mo (API + site + node module), vous pouvez télécharger le ZIP ou [clonner le dépot](https://docs.github.com/fr/repositories/creating-and-managing-repositories/cloning-a-repository) dans un dossier vide.
+
+---
+
 # Lancement
 Pour exécuter/lancer le site en locale deux posibilité sont mises en place :
 ### Sous Windows
